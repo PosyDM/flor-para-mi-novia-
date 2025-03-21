@@ -1,0 +1,110 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #fff5d7;
+            font-family: 'Georgia', serif;
+            flex-direction: column;
+            position: relative;
+        }
+        .login-box {
+            background: #ffeb99;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .message-box {
+            display: none;
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+        .flower-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .flower-img {
+            width: 100px;
+            height: auto;
+            animation: float 3s infinite ease-in-out alternate;
+        }
+        .flower1 {
+            width: 60px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            border: none;
+            animation: spin 4s linear infinite;
+        }
+        .flower2 {
+            display: block;
+            margin: 20px auto 0;
+            border: none;
+        }
+        .flower3 {
+            width: 80px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            border: none;
+            animation: sway 5s infinite ease-in-out;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-10px); }
+        }
+        @keyframes sway {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box" id="login-box">
+        <h2>Bienvenido</h2>
+        <p>¿Cuál es tu nombre?</p>
+        <input type="text" id="name" placeholder="Escribe tu nombre">
+        <button onclick="showMessage()">Ingresar</button>
+    </div>
+    <div class="message-box" id="message-box">
+        <img src='flor1.png' alt='Flor pequeña' class='flower1'>
+    </div>
+        
+    <script>
+        function showMessage() {
+            let name = document.getElementById('name').value;
+            if (name.trim() !== "") {
+                document.getElementById('login-box').style.display = 'none';
+                let messageBox = document.getElementById('message-box');
+                messageBox.innerHTML = `<h2>Hola ${name} 💛</h2>
+                                       <p>Como un girasol sigue al sol, tú iluminas con tu presencia y alegras cada rincón con tu sonrisa. 🌻✨</p>
+                                       <p>Eres única, como una flor en primavera, llenando el mundo de color y alegría. Nunca dejes de brillar. 💛</p>
+                                       <img src='flor2.jpg' alt='Flor debajo del texto' class='flower2'>
+                                       <img src='flor1.png' alt='Flor pequeña' class='flower1'>`;
+                messageBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
